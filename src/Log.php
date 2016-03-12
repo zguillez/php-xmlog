@@ -33,7 +33,7 @@ class Log {
 				$result = (file_put_contents($this->path . $this->filename . $date . "." . $tipo, $log, $append)) ? 1 : 0;
 				break;
 			case self::XML:
-				$xml = new DOMDocument('1.0', 'UTF-8');
+				$xml = new \DOMDocument('1.0', 'UTF-8');
 				if ($clear) {
 					if ($backup) {
 						$result = (copy($this->path . $this->filename . "." . $tipo, $this->path . $this->filename . "_" . str_replace(" ", "_", $this->date) . "-backup." . $tipo)) ? 1 : 0;
