@@ -22,6 +22,52 @@ PHP module for create XML and LOG files
         }
     }
 
+# Usage:
+
+	require 'vendor/autoload.php';
+
+    use Z\Log;
+      
+    $log = new Log("register", "./logs/");
+    
+On this example, "register" is the name of the log file and "./logs" is the folder on this files will be saved. This folder must have write permitions.
+
+	$log->insert(Log::LOG, 'This is an update!', false, true, true);
+    
+This will create a file "register.log" with the text "This is an update!".
+
+For create a XML file instead LOG file:
+
+	$log->insert(Log::XML, 'This is an update!', false, true, true);
+
+## Options (true/false):
+
+### 1 option:
+
+`$log->insert(Log::LOG, 'This is an update!', >>>false<<<, true, true);`
+
+Create a dated file name:
+
+* true: register_2016-03-12_17:10:17.log
+* false: register.log
+
+### 2 option:
+
+`$log->insert(Log::LOG, 'This is an update!', false, >>>true<<<, true);`
+
+Overwrite last file:
+
+* true: register.log (overwrite the file with new log text)
+* false: register.log (new log text will added in new line)
+
+### 3 option:
+
+`$log->insert(Log::LOG, 'This is an update!', false, true, >>>true<<<);`
+
+Backup last file:
+
+* true: register_2016-03-12_17:10:17_backup.log
+* false: (no backup file)
 
 # Example:
 
