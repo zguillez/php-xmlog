@@ -1,0 +1,5 @@
+{
+	"require": {
+		"zguillez/php-xmlog": "^0.0.1"
+	}
+}

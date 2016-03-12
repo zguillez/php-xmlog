@@ -1,0 +1,20 @@
+{
+	"name": "zguillez/php-xmlog",
+	"description": "PHP module for create XML and LOG files",
+	"keywords": [
+		"Php",
+		"XML",
+		"Log"
+	],
+	"license": "MIT",
+	"authors": [{
+		"name": "Guillermo de la Iglesia",
+		"email": "zguillez@gmail.com"
+	}],
+	"require": {},
+	"autoload": {
+		"psr-4": {
+			"Z\\": "src/"
+		}
+	}
+}
