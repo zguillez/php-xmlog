@@ -4,7 +4,17 @@ require 'vendor/autoload.php';
 
 use Z\Log;
 
-$log = new Log("registro", "./logs/");
+$params = [];
+$params["type"]   = Log::LOG;
+$params["filename"]   = "register";
+$params["path"]   = "./logs/";
+$params["dated"]  = false;
+$params["clear"]  = false;
+$params["backup"] = false;
 
-echo $log->insert(Log::LOG, 'Esto es un update!', false, true, true);
-echo $log->insert(Log::XML, 'Esto es un update!', false, true, true);
+$log = new Log($params);
+
+$log->config(["dated"=>true]);
+
+$log->insert('This is update one!');
+$log->insert('This is update two!');

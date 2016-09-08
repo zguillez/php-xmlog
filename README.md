@@ -17,7 +17,7 @@ PHP module for create XML and LOG files
 	//packaje.json
 	{
         "require": {
-            "zguillez/php-xmlog": "^1.0.0"
+            "zguillez/php-xmlog": "^1.1.0"
         }
     }
 
@@ -26,60 +26,74 @@ PHP module for create XML and LOG files
 	require 'vendor/autoload.php';
 
     use Z\Log;
-      
-    $log = new Log("register", "./logs/");
     
-On this example, "register" is the name of the log file and "./logs" is the folder on this files will be saved. This folder must have write permitions.
+    $params["filename"] = "register";
+	$params["path"] = "./logs/";
 
-	$log->insert(Log::LOG, 'This is an update!', false, true, true);
+    $log = new Log($params);
+    
+On this example, "register" is the name of the log file and "./logs" is the folder on this files will be saved. **This folder must exits and have write permitions**.
+
+	$log->insert('This is an update!');
     
 This will create a file "register.log" with the text "This is an update!".
 
 For create a XML file instead LOG file:
 
-	$log->insert(Log::XML, 'This is an update!', false, true, true);
+	$params["type"] = Log::XML;
 
 ## Options (true/false):
 
-### 1 option:
+### 1 dated:
 
-`$log->insert(Log::LOG, 'This is an update!', >>>false<<<, true, true);`
+	$params["dated"]  = true;
 
 Create a dated file name:
 
 * true: register_2016-03-12_17:10:17.log
-* false: register.log
+* false (default): register.log
 
-### 2 option:
+### 2 clear:
 
-`$log->insert(Log::LOG, 'This is an update!', false, >>>true<<<, true);`
+	$params["clear"]  = true;
 
 Overwrite last file:
 
 * true: register.log (overwrite the file with new log text)
-* false: register.log (new log text will added in new line)
+* false (default): register.log (new log text will added in new line)
 
-### 3 option:
+### 3 backup:
 
-`$log->insert(Log::LOG, 'This is an update!', false, true, >>>true<<<);`
+	$params["backup"] = true;
 
 Backup last file:
 
 * true: register_2016-03-12_17:10:17_backup.log
-* false: (no backup file)
+* false (default): (no backup file)
+
+## Configuration:
+
+You can override the log options by a config function.
+
+	$log->config(["dated"=>true]);
 
 # Example:
 
-	<?php
+	require 'vendor/autoload.php';
 
-      require 'vendor/autoload.php';
+	$params["type"]   = Log::LOG;
+	$params["filename"]   = "register";
+	$params["path"]   = "./logs/";
+	$params["dated"]  = false;
+	$params["clear"]  = false;
+	$params["backup"] = false;
 
-      use Z\Log;
+	$log = new Log($params);
 
-      $log = new Log("register", "./logs/");
+	$log->config(["dated"=>true]);
 
-      echo $log->insert(Log::LOG, 'This is an update!', false, true, true);
-      echo $log->insert(Log::XML, 'This is an update!', false, true, true);
+	$log->insert('This is update one!');
+	$log->insert('This is update two!');
 
 
 # Contributing and issues
@@ -93,6 +107,10 @@ Contributors are welcome, please fork and send pull requests! If you have any id
 Original code licensed under [MIT](https://en.wikipedia.org/wiki/MIT_License) Open Source projects used within this project retain their original licenses.
 
 # Changelog
+
+### v1.1.0 (September 9, 2016) 
+
+* Configuration object
 
 ### v1.0.0 (March 12, 2016) 
 
