@@ -17,21 +17,21 @@
 		{
 			$this->date     = date("Y-m-d H:i:s");
 			$this->ip       = ($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : 0;
-			$this->type     = ($params["type"]) ? $params["type"] : "/";
-			$this->path     = ($params["path"]) ? $params["path"] : "/";
-			$this->dated    = ($params["dated"]) ? $params["dated"] : false;
-			$this->clear    = ($params["clear"]) ? $params["clear"] : false;
-			$this->backup   = ($params["backup"]) ? $params["backup"] : false;
-			$this->filename = ($params["filename"]) ? $params["filename"] : "log";
+			$this->type     = (isset($params["type"])) ? $params["type"] : Log::LOG;
+			$this->path     = (isset($params["path"])) ? $params["path"] : "/";
+			$this->dated    = (isset($params["dated"])) ? $params["dated"] : false;
+			$this->clear    = (isset($params["clear"])) ? $params["clear"] : false;
+			$this->backup   = (isset($params["backup"])) ? $params["backup"] : false;
+			$this->filename = (isset($params["filename"])) ? $params["filename"] : "log";
 		}
 		public function config($params)
 		{
-			$this->type     = ($params["type"]) ? $params["type"] : $this->type;
-			$this->path     = ($params["path"]) ? $params["path"] : $this->path;
-			$this->dated    = ($params["dated"]) ? $params["dated"] : $this->dated;
-			$this->clear    = ($params["clear"]) ? $params["clear"] : $this->clear;
-			$this->backup   = ($params["backup"]) ? $params["backup"] : $this->backup;
-			$this->filename = ($params["filename"]) ? $params["filename"] : $this->filename;
+			$this->type     = (isset($params["type"])) ? $params["type"] : $this->type;
+			$this->path     = (isset($params["path"])) ? $params["path"] : $this->path;
+			$this->dated    = (isset($params["dated"])) ? $params["dated"] : $this->dated;
+			$this->clear    = (isset($params["clear"])) ? $params["clear"] : $this->clear;
+			$this->backup   = (isset($params["backup"])) ? $params["backup"] : $this->backup;
+			$this->filename = (isset($params["filename"])) ? $params["filename"] : $this->filename;
 		}
 		public function insert($text)
 		{
