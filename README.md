@@ -1,6 +1,5 @@
 # php-xmlog
 
-[![Dependency Status](https://gemnasium.com/zguillez/php-xmlog.svg)](https://gemnasium.com/zguillez/php-xmlog)
 ![](https://reposs.herokuapp.com/?path=zguillez/php-xmlog)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
 [![Join the chat at https://gitter.im/zguillez/php-xmlog](https://badges.gitter.im/zguillez/php-xmlog.svg)](https://gitter.im/zguillez/php-xmlog?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
@@ -26,16 +25,16 @@ PHP module for create XML and LOG files
 	require 'vendor/autoload.php';
 
     use Z\Log;
-    
+
     $params["filename"] = "register";
 	$params["path"] = "./logs/";
 
     $log = new Log($params);
-    
+
 On this example, "register" is the name of the log file and "./logs" is the folder on this files will be saved. **This folder must exits and have write permitions**.
 
 	$log->insert('This is an update!');
-    
+
 This will create a file "register.log" with the text "This is an update!".
 
 For create a XML file instead LOG file:
@@ -102,18 +101,16 @@ Contributors are welcome, please fork and send pull requests! If you have any id
 
 # License
 
-©2016 Zguillez.io
+©2019 Zguillez.io
 
 Original code licensed under [MIT](https://en.wikipedia.org/wiki/MIT_License) Open Source projects used within this project retain their original licenses.
 
 # Changelog
 
-### v1.1.0 (September 9, 2016) 
+### v1.1.0 (September 9, 2016)
 
 * Configuration object
 
-### v1.0.0 (March 12, 2016) 
+### v1.0.0 (March 12, 2016)
 
 * Initial implementation
-
-[![Analytics](https://ga-beacon.appspot.com/UA-1125217-30/zguillez/php-xmlog?pixel)](https://github.com/igrigorik/ga-beacon)
