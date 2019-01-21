@@ -16,7 +16,7 @@ PHP module for create XML and LOG files
 	//packaje.json
 	{
         "require": {
-            "zguillez/php-xmlog": "^1.1.0"
+            "zguillez/php-xmlog": "^1.1.3"
         }
     }
 
